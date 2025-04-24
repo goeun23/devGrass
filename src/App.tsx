@@ -1,10 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import CommitInput from './components/commitInput'
+import CommitInput from './components/CommitInput'
 import Calendar from './components/Calendar'
-import React from 'react'; // ✅ 반드시 있어야 함!
 import CommitHistory from './components/CommitHistory'
 
 function App() {

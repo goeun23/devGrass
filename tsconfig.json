@@ -3,5 +3,14 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ], 
+  "compilerOptions": {
+    "noEmit": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "isolatedModules": false,
+    "strict": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

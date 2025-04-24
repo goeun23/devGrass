@@ -1,4 +1,4 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { commitsAtom } from "../recoil/commits";
 import { format } from "date-fns";
 
@@ -9,7 +9,7 @@ const CommitHistory = () => {
         a.date === b.date ? 0 : a.date > b.date ? -1:1
     );
 
-    const handleDelete = (index: nubmer) => {
+    const handleDelete = (index:any) => {
         const updated = [...commits];
         updated.splice(index, 1);
         setCommits(updated);

@@ -3,7 +3,7 @@ import { selectedDateAtom } from '../recoil/selectedDate';
 import { commitsAtom, commitCountSelector } from '../recoil/commits';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, getDay } from 'date-fns';
 import { getCommitColor } from '../utils/commitColor';
-import classNames from 'classnames';
+
 
 
 const Calendar = () => {

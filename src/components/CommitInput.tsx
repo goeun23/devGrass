@@ -2,7 +2,7 @@ import {useRecoilState, useRecoilValue} from 'recoil';
 import { commitsAtom } from '../recoil/commits';
 import { selectedDateAtom } from '../recoil/selectedDate';
 import { useState } from 'react';
-import React from 'react'; // ✅ 반드시 있어야 함!
+
 
 const CommitInput = () => {
     const [commits, setCommits] = useRecoilState(commitsAtom);
@@ -20,7 +20,7 @@ const CommitInput = () => {
         setMessage('')
     }
     
-    const activeEnter = (e) => {
+    const activeEnter = (e:any) => {
       if(e.key === 'Enter'){
         handleSubmit();
       }
