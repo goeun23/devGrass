@@ -14,10 +14,20 @@ const CommitHistory = () => {
         updated.splice(index, 1);
         setCommits(updated);
     }
+
+    const resetHistory = (e:any) => {
+        setCommits([]);
+    }
     
     return (
         <div className="w-full max-w-md mt-10 p-4 bg-white shadow rounded">
-           <h2 className="text-lg font-semibold mb-3 text-gray-700">📜 커밋 히스토리</h2>
+           <h2 className="text-lg font-semibold mb-3 text-gray-700">📜 커밋 히스토리
+           <button
+                className="text-red-400 hover:text-red-600 text-xs"
+                onClick={(e)=> resetHistory(e)}>
+                비우기
+            </button>
+           </h2>
             {sorted.length === 0 ? (
                 <p className="text-sm text-gray-400">아직 커밋이 없어요.</p>
             ) : (
@@ -38,6 +48,7 @@ const CommitHistory = () => {
                 ))}
                 </ul>
             )} 
+            
         </div>
     )
 }

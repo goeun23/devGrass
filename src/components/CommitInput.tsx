@@ -10,7 +10,15 @@ const CommitInput = () => {
     const [message, setMessage] = useState('');
 
     const handleSubmit = () => {
-        if(!selectedDate || message.trim() === '') return;
+      console.log(selectedDate)
+        if(!selectedDate){
+          alert("날짜를 선택해주세요.")
+          return;
+        } 
+        if(message.trim() === '') {
+          alert('메세지를 입력해주세요.')
+          return;
+        }
 
         setCommits([
             ...commits, 

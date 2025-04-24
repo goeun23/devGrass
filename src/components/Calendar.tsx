@@ -40,12 +40,12 @@ const Calendar = () => {
         return (
           <div className="relative group" key={dateStr}>
            <button
-      onClick={() => setSelectedDate(dateStr)}
-      className={`w-full aspect-square p-1 rounded text-sm border text-center transition-colors
-        ${color}
-        ${isSelected ? 'ring-2 ring-green-500' : ''}
-        hover:brightness-110`}
-    >
+              onClick={() => setSelectedDate(dateStr)}
+              className={`w-full aspect-square p-1 rounded text-sm border text-center transition-colors
+                ${color}
+                ${isSelected ? 'ring-2 ring-green-500' : ''}
+                hover:brightness-110`}
+            >
               {format(day, 'd')}
             </button>
 
