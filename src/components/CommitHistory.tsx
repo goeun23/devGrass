@@ -15,7 +15,7 @@ const CommitHistory = () => {
         setCommits(updated);
     }
 
-    const resetHistory = (e:any) => {
+    const resetHistory = () => {
         setCommits([]);
     }
     
@@ -24,7 +24,7 @@ const CommitHistory = () => {
            <h2 className="text-lg font-semibold mb-3 text-gray-700">📜 커밋 히스토리
            <button
                 className="text-red-400 hover:text-red-600 text-xs"
-                onClick={(e)=> resetHistory(e)}>
+                onClick={()=> resetHistory()}>
                 비우기
             </button>
            </h2>
