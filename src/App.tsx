@@ -20,11 +20,8 @@ function App() {
                 <YearSelector/>
                 <MonthSelector/>
 
-                <Calendar 
-                    selectedDate={selectedDate}
-                    setSelectedDate={setSelectedDate}
-                />
-                <CommitInput selectedDate={selectedDate} />
+                <Calendar />
+                <CommitInput/>
                 <CommitHistory />
             </div>
         </div>

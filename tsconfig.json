@@ -1,5 +1,4 @@
 {
-  "files": [],
   "references": [
     
   ], 
@@ -8,7 +7,10 @@
     "checkJs": false,
     "skipLibCheck": true,
     "isolatedModules": false,
-    "strict": false
+    "strict": false,
+    "jsx" : "react-jsx", 
+    "esModuleInterop": true,
+    "lib" : ["dom", "ES2017"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
