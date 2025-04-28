@@ -1,10 +1,11 @@
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { commitsAtom } from "../recoil/commits";
 import { format } from "date-fns";
+import { Commit } from "../recoil/types";
 
 const CommitHistory = () => {
     const [commits, setCommits] = useRecoilState(commitsAtom);
-    
+    console.log(commits)
     const sorted = [...commits].sort((a,b)=> 
         a.date === b.date ? 0 : a.date > b.date ? -1:1
     );

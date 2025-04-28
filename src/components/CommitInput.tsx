@@ -3,7 +3,6 @@ import { commitsAtom } from '../recoil/commits';
 import { selectedDateAtom } from '../recoil/selectedDate';
 import { useState } from 'react';
 
-
 const CommitInput = () => {
     const [commits, setCommits] = useRecoilState(commitsAtom);
     const selectedDate = useRecoilValue(selectedDateAtom);

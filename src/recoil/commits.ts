@@ -6,7 +6,9 @@ const localStorageKey = 'devgrass-commits';
 const loadInitialCommits = (): Commit[] => {
     try{
         const saved = localStorage.getItem(localStorageKey);
-        return saved ? JSON.parse(saved) : [];
+        if(!saved) return [];
+        const parsed = JSON.parse(saved);
+        return Array.isArray(parsed) ? parsed : [];
     }
     catch{
         return [];
