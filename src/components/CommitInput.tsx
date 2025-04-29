@@ -2,11 +2,16 @@ import {useRecoilState, useRecoilValue} from 'recoil';
 import { commitsAtom } from '../recoil/commits';
 import { selectedDateAtom } from '../recoil/selectedDate';
 import { useState } from 'react';
+import { useCommits } from '../hooks/useCommit';
+
+
 
 const CommitInput = () => {
     const [commits, setCommits] = useRecoilState(commitsAtom);
     const selectedDate = useRecoilValue(selectedDateAtom);
     const [message, setMessage] = useState('');
+
+    const {addCommit} = useCommits();
 
     const handleSubmit = () => {
       console.log(selectedDate)
@@ -19,10 +24,11 @@ const CommitInput = () => {
           return;
         }
 
-        setCommits([
-            ...commits, 
-            {date : selectedDate, message}
-        ]);
+        addCommit({
+          id:Math.random().toString(36).substr(2,9), 
+          date:selectedDate, 
+          message
+        })
 
         setMessage('')
     }

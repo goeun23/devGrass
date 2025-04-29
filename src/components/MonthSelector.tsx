@@ -4,8 +4,6 @@ import { selectedMonthAtom } from "../recoil/selectedMonth"
 
 const MonthSelector = () => {
     const [selectedMonth, setSelectedMonth] = useRecoilState(selectedMonthAtom)
-
-    const currentYear = new Date().getFullYear()
     let months = [];
     for(let i =0; i<12; i++){
         
@@ -15,7 +13,6 @@ const MonthSelector = () => {
         })
     }
     
-
     return (
         <div className="mb-4">
             <select className="border border-gray-400 rounded p-2 text-black" value={selectedMonth}

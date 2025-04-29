@@ -5,10 +5,14 @@ import TodayBanner from './components/TodayBanner';
 import TopCommitDays from './components/TopCommitDays';
 import YearSelector from './components/YearSelector';
 import MonthSelector from './components/MonthSelector'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { fetchCommitFromStorage } from './utils/commitStorage';
+import { useRecoilState } from 'recoil';
+import { commitsAtom } from './recoil/commits';
 
 function App() {
-    const [selectedDate, setSelectedDate] = useState<string>('');
+    
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-white text-black p-6">
@@ -20,7 +24,7 @@ function App() {
                 <YearSelector/>
                 <MonthSelector/>
 
-                <Calendar />
+                <Calendar/>
                 <CommitInput/>
                 <CommitHistory />
             </div>

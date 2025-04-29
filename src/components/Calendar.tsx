@@ -7,7 +7,7 @@ import { startOfMonth, endOfMonth, eachDayOfInterval, format, getDay } from 'dat
 import { getCommitColor } from '../utils/commitColor';
 import { Commit } from '../recoil/types';
 
-const Calendar = () => {
+const Calendar = ({}) => {
   const selectedYear = useRecoilValue(selectedYearAtom);
   const selectedMonth = useRecoilValue(selectedMonthAtom);
   const selectedDate = useRecoilValue(selectedDateAtom);
