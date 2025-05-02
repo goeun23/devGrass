@@ -1,18 +1,35 @@
-import Calendar from './components/Calendar';
-import CommitInput from './components/CommitInput';
-import CommitHistory from './components/CommitHistory';
-import TodayBanner from './components/TodayBanner';
+import Calendar from './components/Calendar/Calendar';
+import CommitInput from './components/Commits/CommitInput';
+import CommitHistory from './components/Commits/CommitHistory';
+import TodayBanner from './components/layout/TodayBanner';
 import TopCommitDays from './components/TopCommitDays';
-import YearSelector from './components/YearSelector';
-import MonthSelector from './components/MonthSelector'
-import { useEffect, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { fetchCommitFromStorage } from './utils/commitStorage';
-import { useRecoilState } from 'recoil';
-import { commitsAtom } from './recoil/commits';
+import YearSelector from './components/Selector/YearSelector';
+import MonthSelector from './components/Selector/MonthSelector'
+
+import { generateDummyCommits } from './utils/generateDummyCommits';
+import { saveCommitsToStorage } from './utils/commitStorage';
+import { useEffect } from 'react';
+
 
 function App() {
     
+    useEffect(() => {
+        //if (process.env.NODE_ENV === 'development') {
+          const lastInjected = localStorage.getItem('dummyInjectedDate');
+          const today = new Date().toISOString().slice(0, 10); // 'YYYY-MM-DD'
+      
+          if (lastInjected === today) return; // 🔒 이미 오늘 주입했으면 스킵
+      
+          const saved = localStorage.getItem('commits');
+          if (!saved) {
+            const dummy = generateDummyCommits(1000);
+            saveCommitsToStorage(dummy);
+            localStorage.setItem('dummyInjectedDate', today); // ✅ 오늘 날짜 기록
+            console.log('💡 더미 커밋 1000개 주입 완료');
+            location.reload();
+          }
+        //}
+      }, []);
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-white text-black p-6">

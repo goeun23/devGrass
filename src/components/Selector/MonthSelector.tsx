@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from "recoil"
-import { selectedMonthAtom } from "../recoil/selectedMonth"
+import { selectedMonthAtom } from "../../recoil/selectedMonth"
 
 
 const MonthSelector = () => {

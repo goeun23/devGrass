@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from "recoil"
-import { selectedYearAtom } from "../recoil/selectedYear"
+import { selectedYearAtom } from "../../recoil/selectedYear"
 
 
 const YearSelector = () => {

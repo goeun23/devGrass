@@ -1,9 +1,10 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { commitsAtom } from "../recoil/commits";
+import { commitsAtom } from "../../recoil/commits";
 import { format } from "date-fns";
-import { selectedMonthAtom } from "../recoil/selectedMonth";
-import { selectedYearAtom } from "../recoil/selectedYear";
-import { useCommits } from "../hooks/useCommit";
+import { selectedMonthAtom } from "../../recoil/selectedMonth";
+import { selectedYearAtom } from "../../recoil/selectedYear";
+import { useCommits } from "../../hooks/useCommit";
+import CommitItem from "./CommitItem";
 
 const CommitHistory = () => {
     const [commits, setCommits] = useRecoilState(commitsAtom);
@@ -44,20 +45,16 @@ const CommitHistory = () => {
                 <p className="text-sm text-gray-400">아직 커밋이 없어요.</p>
             ) : (
                 <ul className="space-y-2">
-                {sorted.map((commit, idx) => (
-                    <li key={`${commit.date}-${idx}`} className="text-sm text-gray-800 flex justify-between items-start gap-2">
-                    <div>
-                        <div className="text-green-600 font-medium">{format(new Date(commit.date), 'yyyy-MM-dd')}</div>
-                        <div>{commit.message}</div>
-                    </div>
-                    <button
-                        onClick={() => handleDelete(commit.id)}
-                        className="text-red-400 hover:text-red-600 text-xs"
-                    >
-                        삭제
-                    </button>
-                    </li>
-                ))}
+                    
+                    {sorted.map(({ id, date, message }) => (
+                        <CommitItem
+                        key={id}
+                        id={id}
+                        date={date}
+                        message={message}
+                        onDelete={deleteCommit}
+                        />
+                    ))}
                 </ul>
             )} 
             

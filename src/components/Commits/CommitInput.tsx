@@ -1,8 +1,9 @@
 import {useRecoilState, useRecoilValue} from 'recoil';
-import { commitsAtom } from '../recoil/commits';
-import { selectedDateAtom } from '../recoil/selectedDate';
+import { commitsAtom } from '../../recoil/commits';
+import { selectedDateAtom } from '../../recoil/selectedDate';
 import { useState } from 'react';
-import { useCommits } from '../hooks/useCommit';
+import { useCommits } from '../../hooks/useCommit';
+import { useValidation } from '../../hooks/useValidation';
 
 
 
@@ -10,6 +11,7 @@ const CommitInput = () => {
     const [commits, setCommits] = useRecoilState(commitsAtom);
     const selectedDate = useRecoilValue(selectedDateAtom);
     const [message, setMessage] = useState('');
+    const {isValid, error} = useValidation(message);
 
     const {addCommit} = useCommits();
 
@@ -52,6 +54,11 @@ const CommitInput = () => {
             onKeyDown={(e)=> activeEnter(e)}
             onChange={(e) => setMessage(e.target.value)}
           />
+          
+          {error && (
+            <div className="text-red-500 text-sm mt-1">{error}</div>
+          )}
+
           <button
             className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
             onClick={handleSubmit}

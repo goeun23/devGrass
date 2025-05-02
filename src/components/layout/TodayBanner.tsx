@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil"
-import { commitsAtom } from "../recoil/commits"
+import { commitsAtom } from "../../recoil/commits"
 import { format } from "date-fns";
 
 const TodayBanner = () => {
